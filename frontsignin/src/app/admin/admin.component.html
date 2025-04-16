@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h3>Admin Panel</h3>
+    <form (ngSubmit)="toDashboard()">
+        <button type="submit" class="btn btn-secondary mt-2">Dashboard</button>
+      </form>
+      <form (ngSubmit)="onSignOut()">
+        <button type="submit" class="btn btn-secondary mt-2">Sign Out</button>
+      </form>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Role</th>
+          <th>New Password</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <div *ngIf="user?.logInMethod === 'c'">
+              <input [(ngModel)]="newPasswords[user.id].password" placeholder="Password 1" class="form-control mb-1">
+              <input [(ngModel)]="newPasswords[user.id].password2" placeholder="Password 2" class="form-control mb-1">
+              <input [(ngModel)]="newPasswords[user.id].password3" placeholder="Password 3" class="form-control mb-1">
+              <input [(ngModel)]="newPasswords[user.id].password4" placeholder="Password 4" class="form-control">
+            </div>
+            <div *ngIf="user?.logInMethod !== 'c'">
+              <input [(ngModel)]="newPasswords[user.id].password" placeholder="New Password" class="form-control">
+            </div>
+          </td>
+          
+          
+          <td>
+            <button class="btn btn-primary" (click)="updatePassword(user.id)">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  

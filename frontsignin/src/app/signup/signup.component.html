@@ -1,0 +1,55 @@
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="mb-4">Create Account</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="form.username" name="username" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="form.email" name="email" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Role</label>
+      <input type="text" class="form-control" [(ngModel)]="form.role" name="role" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Login Method</label>
+      <select class="form-control" [(ngModel)]="form.logInMethod" name="logInMethod" required>
+        <option value="r">Regular (1 password)</option>
+        <option value="m">Multiple Attempt</option>
+        <option value="s">Sequence</option>
+        <option value="c">Combonitorial</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Password 1</label>
+      <input type="password" class="form-control" [(ngModel)]="form.password" name="password" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Password 2</label>
+      <input type="password" class="form-control" [(ngModel)]="form.password2" name="password2">
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Password 3</label>
+      <input type="password" class="form-control" [(ngModel)]="form.password3" name="password3">
+    </div>
+
+    <div class="form-group mb-3">
+      <label>Password 4</label>
+      <input type="password" class="form-control" [(ngModel)]="form.password4" name="password4">
+    </div>
+
+    <button class="btn btn-success" type="submit">Sign Up</button>
+  </form>
+  <form (ngSubmit)="onLogin()">
+    <button type="submit" class="btn btn-secondary mt-2">Log In</button>
+  </form>
+</div>

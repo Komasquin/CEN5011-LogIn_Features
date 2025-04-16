@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Welcome, {{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <p>Role: {{ user.role }}</p>
+</div>
+<button *ngIf="isAdmin()" class="btn btn-warning" (click)="goToAdminPanel()">
+  Admin Panel
+</button>
+
+<form (ngSubmit)="onSignOut()">
+  <button type="submit" class="btn btn-secondary mt-2">Sign Out</button>
+</form>
+
